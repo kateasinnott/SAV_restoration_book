@@ -6,7 +6,7 @@ output: html_document
 ---
 
 
-#Database Structure
+# Database Structure
 
 ## RSQLite Package
 The R package DBI (database interface) allows R to interface with SQLite. So first, 
