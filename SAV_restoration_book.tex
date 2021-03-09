@@ -125,9 +125,8 @@
 \hypertarget{project-introduction}{%
 \chapter{Project Introduction}\label{project-introduction}}
 
-\hypertarget{rsqlite-package}{%
-\chapter{RSQLite Package}\label{rsqlite-package}}
-
+\#Database Structure
+\#\# RSQLite Package
 The R package DBI (database interface) allows R to interface with SQLite. So first,
 we install DBI:
 
@@ -138,7 +137,7 @@ we install DBI:
 \end{Shaded}
 
 \hypertarget{establishing-a-database-connection}{%
-\chapter{Establishing a database connection}\label{establishing-a-database-connection}}
+\section{Establishing a database connection}\label{establishing-a-database-connection}}
 
 I have already created a database for my SAV restoration project in SQLite,
 so now I need to connect to that database using \texttt{dbConnect}.
@@ -150,7 +149,7 @@ so now I need to connect to that database using \texttt{dbConnect}.
 \end{Shaded}
 
 \hypertarget{building-database-tables}{%
-\chapter{Building database tables}\label{building-database-tables}}
+\section{Building database tables}\label{building-database-tables}}
 
 Now I need to start creating my database tables. To do this I use \texttt{dbExecute}, then
 just type in the query like I would in SQLite. This is the database structure I will
@@ -166,7 +165,7 @@ be building:
 \end{figure}
 
 \hypertarget{table-1-plants}{%
-\section{Table 1: Plants}\label{table-1-plants}}
+\subsection{Table 1: Plants}\label{table-1-plants}}
 
 I started with this table because it doesn't reference foreign keys from other tables. This table includes information I will need to reference specific plant populations -
 specifically, the species and the collection locations.
@@ -183,7 +182,7 @@ specifically, the species and the collection locations.
 \end{Shaded}
 
 \hypertarget{table-2-plots}{%
-\section{Table 2: Plots}\label{table-2-plots}}
+\subsection{Table 2: Plots}\label{table-2-plots}}
 
 This table includes static information about different plots where the plants will be introduced. The foreign key is the plant\_id, which references the Plants table. Other attributes are the planting method used and the location of the plots.
 
@@ -199,7 +198,7 @@ This table includes static information about different plots where the plants wi
 \end{Shaded}
 
 \hypertarget{table-3-observations}{%
-\section{Table 3: Observations}\label{table-3-observations}}
+\subsection{Table 3: Observations}\label{table-3-observations}}
 
 The observations table includes the data collected at each plot on different collecting days. The foreign key is the plot\_id column, which references the Plots table. This data is not static. In addition to date, attributes included are water depth, flow rate, and Secchi depth, which very variable in the restoration system.
 
@@ -218,7 +217,7 @@ The observations table includes the data collected at each plot on different col
 \end{Shaded}
 
 \hypertarget{table-4-functional-traits}{%
-\section{Table 4: Functional Traits}\label{table-4-functional-traits}}
+\subsection{Table 4: Functional Traits}\label{table-4-functional-traits}}
 
 This is where measurements of specific plants are recorded. This will be used to determine the success of the different plots. There are two foreign keys: plot\_id and observation\_id. Functional traits measured are leaf wisth, height, rhizomes, root depth, and shoot biomass.
 
@@ -240,7 +239,7 @@ This is where measurements of specific plants are recorded. This will be used to
 \end{Shaded}
 
 \hypertarget{table-5-species-richness}{%
-\section{Table 5: Species richness}\label{table-5-species-richness}}
+\subsection{Table 5: Species richness}\label{table-5-species-richness}}
 
 This table includes measurements to evaluate species richness. It has two foreign keys: observation and plot identifications. Attributes measured are presence of invasive species and percent cover of each species.
 
