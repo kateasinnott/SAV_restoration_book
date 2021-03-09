@@ -3,22 +3,22 @@
     "path": "~/Desktop/WILD_6900/SAV_restoration/SAV_restoration_book/database_setup.Rmd",
     "project_path": "database_setup.Rmd",
     "type": "r_markdown",
-    "hash": "1358070047",
+    "hash": "1187222076",
     "contents": "",
     "dirty": false,
     "created": 1615248627254.0,
     "source_on_save": false,
     "relative_order": 4,
     "properties": {
-        "cursorPosition": "86,3",
-        "scrollLine": "82"
+        "cursorPosition": "8,0",
+        "scrollLine": "0"
     },
     "folds": "",
-    "lastKnownWriteTime": 1615248844,
+    "lastKnownWriteTime": 1615248941,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1615248844617,
+    "last_content_update": 1615248941430,
     "read_only": false,
     "read_only_alternatives": []
 }

@@ -5,6 +5,7 @@ date: "3/1/2021"
 output: html_document
 ---
 #Database Structure
+
 ## RSQLite Package
 The R package DBI (database interface) allows R to interface with SQLite. So first, 
 we install DBI: 

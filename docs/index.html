@@ -135,13 +135,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="#project-introduction"><i class="fa fa-check"></i><b>1</b> Project Introduction</a><ul>
-<li class="chapter" data-level="1.1" data-path="index.html"><a href="#establishing-a-database-connection"><i class="fa fa-check"></i><b>1.1</b> Establishing a database connection</a></li>
-<li class="chapter" data-level="1.2" data-path="index.html"><a href="#building-database-tables"><i class="fa fa-check"></i><b>1.2</b> Building database tables</a><ul>
-<li class="chapter" data-level="1.2.1" data-path="index.html"><a href="#table-1-plants"><i class="fa fa-check"></i><b>1.2.1</b> Table 1: Plants</a></li>
-<li class="chapter" data-level="1.2.2" data-path="index.html"><a href="#table-2-plots"><i class="fa fa-check"></i><b>1.2.2</b> Table 2: Plots</a></li>
-<li class="chapter" data-level="1.2.3" data-path="index.html"><a href="#table-3-observations"><i class="fa fa-check"></i><b>1.2.3</b> Table 3: Observations</a></li>
-<li class="chapter" data-level="1.2.4" data-path="index.html"><a href="#table-4-functional-traits"><i class="fa fa-check"></i><b>1.2.4</b> Table 4: Functional Traits</a></li>
-<li class="chapter" data-level="1.2.5" data-path="index.html"><a href="#table-5-species-richness"><i class="fa fa-check"></i><b>1.2.5</b> Table 5: Species richness</a></li>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="#rsqlite-package"><i class="fa fa-check"></i><b>1.1</b> RSQLite Package</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="#establishing-a-database-connection"><i class="fa fa-check"></i><b>1.2</b> Establishing a database connection</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="#building-database-tables"><i class="fa fa-check"></i><b>1.3</b> Building database tables</a><ul>
+<li class="chapter" data-level="1.3.1" data-path="index.html"><a href="#table-1-plants"><i class="fa fa-check"></i><b>1.3.1</b> Table 1: Plants</a></li>
+<li class="chapter" data-level="1.3.2" data-path="index.html"><a href="#table-2-plots"><i class="fa fa-check"></i><b>1.3.2</b> Table 2: Plots</a></li>
+<li class="chapter" data-level="1.3.3" data-path="index.html"><a href="#table-3-observations"><i class="fa fa-check"></i><b>1.3.3</b> Table 3: Observations</a></li>
+<li class="chapter" data-level="1.3.4" data-path="index.html"><a href="#table-4-functional-traits"><i class="fa fa-check"></i><b>1.3.4</b> Table 4: Functional Traits</a></li>
+<li class="chapter" data-level="1.3.5" data-path="index.html"><a href="#table-5-species-richness"><i class="fa fa-check"></i><b>1.3.5</b> Table 5: Species richness</a></li>
 </ul></li>
 </ul></li>
 <li class="divider"></li>
@@ -172,19 +173,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="project-introduction" class="section level1">
 <h1><span class="header-section-number">Chapter 1</span> Project Introduction</h1>
 
-<p>#Database Structure
-## RSQLite Package
-The R package DBI (database interface) allows R to interface with SQLite. So first,
+<p>#Database Structure</p>
+<div id="rsqlite-package" class="section level2">
+<h2><span class="header-section-number">1.1</span> RSQLite Package</h2>
+<p>The R package DBI (database interface) allows R to interface with SQLite. So first,
 we install DBI:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw">library</span>(DBI)</span></code></pre></div>
+</div>
 <div id="establishing-a-database-connection" class="section level2">
-<h2><span class="header-section-number">1.1</span> Establishing a database connection</h2>
+<h2><span class="header-section-number">1.2</span> Establishing a database connection</h2>
 <p>I have already created a database for my SAV restoration project in SQLite,
 so now I need to connect to that database using <code>dbConnect</code>.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a>restoration_db &lt;-<span class="st"> </span><span class="kw">dbConnect</span>(RSQLite<span class="op">::</span><span class="kw">SQLite</span>(),<span class="st">&quot;/Users/katesinnott/Desktop/WILD_6900/SAV_restoration/SAV_restoration.db&quot;</span>)</span></code></pre></div>
 </div>
 <div id="building-database-tables" class="section level2">
-<h2><span class="header-section-number">1.2</span> Building database tables</h2>
+<h2><span class="header-section-number">1.3</span> Building database tables</h2>
 <p>Now I need to start creating my database tables. To do this I use <code>dbExecute</code>, then
 just type in the query like I would in SQLite. This is the database structure I will
 be building:</p>
@@ -195,7 +198,7 @@ Figure 1.1: Database diagram
 </p>
 </div>
 <div id="table-1-plants" class="section level3">
-<h3><span class="header-section-number">1.2.1</span> Table 1: Plants</h3>
+<h3><span class="header-section-number">1.3.1</span> Table 1: Plants</h3>
 <p>I started with this table because it doesn’t reference foreign keys from other tables. This table includes information I will need to reference specific plant populations -
 specifically, the species and the collection locations.</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="kw">dbExecute</span>(restoration_db, <span class="st">&quot;CREATE TABLE plants (</span></span>
@@ -206,7 +209,7 @@ specifically, the species and the collection locations.</p>
 <span id="cb3-6"><a href="#cb3-6"></a><span class="st">          );&quot;</span>)</span></code></pre></div>
 </div>
 <div id="table-2-plots" class="section level3">
-<h3><span class="header-section-number">1.2.2</span> Table 2: Plots</h3>
+<h3><span class="header-section-number">1.3.2</span> Table 2: Plots</h3>
 <p>This table includes static information about different plots where the plants will be introduced. The foreign key is the plant_id, which references the Plants table. Other attributes are the planting method used and the location of the plots.</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="kw">dbExecute</span>(restoration_db, <span class="st">&quot;CREATE TABLE plots (</span></span>
 <span id="cb4-2"><a href="#cb4-2"></a><span class="st">          plot_id varchar(5) NOT NULL PRIMARY KEY,</span></span>
@@ -216,7 +219,7 @@ specifically, the species and the collection locations.</p>
 <span id="cb4-6"><a href="#cb4-6"></a><span class="st">          );&quot;</span>)</span></code></pre></div>
 </div>
 <div id="table-3-observations" class="section level3">
-<h3><span class="header-section-number">1.2.3</span> Table 3: Observations</h3>
+<h3><span class="header-section-number">1.3.3</span> Table 3: Observations</h3>
 <p>The observations table includes the data collected at each plot on different collecting days. The foreign key is the plot_id column, which references the Plots table. This data is not static. In addition to date, attributes included are water depth, flow rate, and Secchi depth, which very variable in the restoration system.</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="kw">dbExecute</span>(restoration_db, <span class="st">&quot;CREATE TABLE observations (</span></span>
 <span id="cb5-2"><a href="#cb5-2"></a><span class="st">          observation_id varchar(10) NOT NULL PRIMARY KEY,</span></span>
@@ -229,7 +232,7 @@ specifically, the species and the collection locations.</p>
 <span id="cb5-9"><a href="#cb5-9"></a><span class="st">          );&quot;</span>)</span></code></pre></div>
 </div>
 <div id="table-4-functional-traits" class="section level3">
-<h3><span class="header-section-number">1.2.4</span> Table 4: Functional Traits</h3>
+<h3><span class="header-section-number">1.3.4</span> Table 4: Functional Traits</h3>
 <p>This is where measurements of specific plants are recorded. This will be used to determine the success of the different plots. There are two foreign keys: plot_id and observation_id. Functional traits measured are leaf wisth, height, rhizomes, root depth, and shoot biomass.</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="kw">dbExecute</span>(restoration_db, <span class="st">&quot;CREATE TABLE functional_traits (</span></span>
 <span id="cb6-2"><a href="#cb6-2"></a><span class="st">          measurement_id varchar(5) NOT NULL PRIMARY KEY,</span></span>
@@ -245,7 +248,7 @@ specifically, the species and the collection locations.</p>
 <span id="cb6-12"><a href="#cb6-12"></a><span class="st">          );&quot;</span>)</span></code></pre></div>
 </div>
 <div id="table-5-species-richness" class="section level3">
-<h3><span class="header-section-number">1.2.5</span> Table 5: Species richness</h3>
+<h3><span class="header-section-number">1.3.5</span> Table 5: Species richness</h3>
 <p>This table includes measurements to evaluate species richness. It has two foreign keys: observation and plot identifications. Attributes measured are presence of invasive species and percent cover of each species.</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="kw">dbExecute</span>(restoration_db, <span class="st">&quot;CREATE TABLE species_richness (</span></span>
 <span id="cb7-2"><a href="#cb7-2"></a><span class="st">          richness_id varchar(10) NOT NULL PRIMARY KEY,</span></span>
