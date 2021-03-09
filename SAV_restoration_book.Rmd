@@ -11,9 +11,9 @@ description: "This is a minimal example of using the bookdown package to write a
 ---
 
 # Project Introduction
-Restoration techniques and subsequent community dynamics are not well understood for submerged aquatic vegetation (SAV). My research addresses the following questions: 
-> What planting methods maximize SAV establishment in unvegetated aquatic habitat?
-> Does increasing SAV species richness maximize invasion resistance to non-native invaders? 
+Restoration techniques and community dynamics are not well understood for submerged aquatic vegetation (SAV). My research addresses the following questions: 
+**What planting methods maximize SAV establishment in unvegetated aquatic habitat?**
+**Does increasing SAV species richness maximize invasion resistance to non-native invaders?** 
 
 ```{r include=FALSE}
 # automatically create a bib database for R packages
