@@ -36,8 +36,8 @@
 \IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
 \IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
 \hypersetup{
-  pdftitle={A Minimal Book Example},
-  pdfauthor={Yihui Xie},
+  pdftitle={Restoration of Submerged Aquatic Vegetation},
+  pdfauthor={Kate Sinnott},
   hidelinks,
   pdfcreator={LaTeX via pandoc}}
 \urlstyle{same} % disable monospaced font for URLs
@@ -111,8 +111,8 @@
 \usepackage[]{natbib}
 \bibliographystyle{apalike}
 
-\title{A Minimal Book Example}
-\author{Yihui Xie}
+\title{Restoration of Submerged Aquatic Vegetation}
+\author{Kate Sinnott}
 \date{2021-03-08}
 
 \begin{document}
@@ -122,95 +122,141 @@
 \setcounter{tocdepth}{1}
 \tableofcontents
 }
-\hypertarget{prerequisites}{%
-\chapter{Prerequisites}\label{prerequisites}}
+\hypertarget{project-introduction}{%
+\chapter{Project Introduction}\label{project-introduction}}
 
-This is a \emph{sample} book written in \textbf{Markdown}. You can use anything that Pandoc's Markdown supports, e.g., a math equation \(a^2 + b^2 = c^2\).
+\hypertarget{rsqlite-package}{%
+\chapter{RSQLite Package}\label{rsqlite-package}}
 
-The \textbf{bookdown} package can be installed from CRAN or Github:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{install.packages}\NormalTok{(}\StringTok{"bookdown"}\NormalTok{)}
-\CommentTok{# or the development version}
-\CommentTok{# devtools::install_github("rstudio/bookdown")}
-\end{Highlighting}
-\end{Shaded}
-
-Remember each Rmd file contains one and only one chapter, and a chapter is defined by the first-level heading \texttt{\#}.
-
-To compile this example to PDF, you need XeLaTeX. You are recommended to install TinyTeX (which includes XeLaTeX): \url{https://yihui.org/tinytex/}.
-
-\hypertarget{intro}{%
-\chapter{Introduction}\label{intro}}
-
-You can label chapter and section titles using \texttt{\{\#label\}} after them, e.g., we can reference Chapter \ref{intro}. If you do not manually label them, there will be automatic labels anyway, e.g., Chapter \ref{methods}.
-
-Figures and tables with captions will be placed in \texttt{figure} and \texttt{table} environments, respectively.
+The R package DBI (database interface) allows R to interface with SQLite. So first,
+we install DBI:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{par}\NormalTok{(}\DataTypeTok{mar =} \KeywordTok{c}\NormalTok{(}\DecValTok{4}\NormalTok{, }\DecValTok{4}\NormalTok{, }\FloatTok{.1}\NormalTok{, }\FloatTok{.1}\NormalTok{))}
-\KeywordTok{plot}\NormalTok{(pressure, }\DataTypeTok{type =} \StringTok{'b'}\NormalTok{, }\DataTypeTok{pch =} \DecValTok{19}\NormalTok{)}
+\KeywordTok{library}\NormalTok{(DBI)}
 \end{Highlighting}
 \end{Shaded}
+
+\hypertarget{establishing-a-database-connection}{%
+\chapter{Establishing a database connection}\label{establishing-a-database-connection}}
+
+I have already created a database for my SAV restoration project in SQLite,
+so now I need to connect to that database using \texttt{dbConnect}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{restoration_db <-}\StringTok{ }\KeywordTok{dbConnect}\NormalTok{(RSQLite}\OperatorTok{::}\KeywordTok{SQLite}\NormalTok{(),}\StringTok{"/Users/katesinnott/Desktop/WILD_6900/SAV_restoration/SAV_restoration.db"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{building-database-tables}{%
+\chapter{Building database tables}\label{building-database-tables}}
+
+Now I need to start creating my database tables. To do this I use \texttt{dbExecute}, then
+just type in the query like I would in SQLite. This is the database structure I will
+be building:
 
 \begin{figure}
 
-{\centering \includegraphics[width=0.8\linewidth]{SAV_restoration_book_files/figure-latex/nice-fig-1} 
+{\centering \includegraphics[width=1\linewidth]{/Users/katesinnott/Desktop/WILD_6900/SAV_restoration/Screen Shot 2021-03-01 at 7.28.09 PM} 
 
 }
 
-\caption{Here is a nice figure!}\label{fig:nice-fig}
+\caption{Database diagram}\label{fig:diagram}
 \end{figure}
 
-Reference a figure by its code chunk label with the \texttt{fig:} prefix, e.g., see Figure \ref{fig:nice-fig}. Similarly, you can reference tables generated from \texttt{knitr::kable()}, e.g., see Table \ref{tab:nice-tab}.
+\hypertarget{table-1-plants}{%
+\section{Table 1: Plants}\label{table-1-plants}}
+
+I started with this table because it doesn't reference foreign keys from other tables. This table includes information I will need to reference specific plant populations -
+specifically, the species and the collection locations.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{knitr}\OperatorTok{::}\KeywordTok{kable}\NormalTok{(}
-  \KeywordTok{head}\NormalTok{(iris, }\DecValTok{20}\NormalTok{), }\DataTypeTok{caption =} \StringTok{'Here is a nice table!'}\NormalTok{,}
-  \DataTypeTok{booktabs =} \OtherTok{TRUE}
-\NormalTok{)}
+\KeywordTok{dbExecute}\NormalTok{(restoration_db, }\StringTok{"CREATE TABLE plants (}
+\StringTok{          plant_id varchar(5) NOT NULL PRIMARY KEY,}
+\StringTok{          planting_method char(9),}
+\StringTok{          species varchar(6),}
+\StringTok{          origin varchar(4)}
+\StringTok{          );"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
-\begin{table}
+\hypertarget{table-2-plots}{%
+\section{Table 2: Plots}\label{table-2-plots}}
 
-\caption{\label{tab:nice-tab}Here is a nice table!}
-\centering
-\begin{tabular}[t]{rrrrl}
-\toprule
-Sepal.Length & Sepal.Width & Petal.Length & Petal.Width & Species\\
-\midrule
-5.1 & 3.5 & 1.4 & 0.2 & setosa\\
-4.9 & 3.0 & 1.4 & 0.2 & setosa\\
-4.7 & 3.2 & 1.3 & 0.2 & setosa\\
-4.6 & 3.1 & 1.5 & 0.2 & setosa\\
-5.0 & 3.6 & 1.4 & 0.2 & setosa\\
-\addlinespace
-5.4 & 3.9 & 1.7 & 0.4 & setosa\\
-4.6 & 3.4 & 1.4 & 0.3 & setosa\\
-5.0 & 3.4 & 1.5 & 0.2 & setosa\\
-4.4 & 2.9 & 1.4 & 0.2 & setosa\\
-4.9 & 3.1 & 1.5 & 0.1 & setosa\\
-\addlinespace
-5.4 & 3.7 & 1.5 & 0.2 & setosa\\
-4.8 & 3.4 & 1.6 & 0.2 & setosa\\
-4.8 & 3.0 & 1.4 & 0.1 & setosa\\
-4.3 & 3.0 & 1.1 & 0.1 & setosa\\
-5.8 & 4.0 & 1.2 & 0.2 & setosa\\
-\addlinespace
-5.7 & 4.4 & 1.5 & 0.4 & setosa\\
-5.4 & 3.9 & 1.3 & 0.4 & setosa\\
-5.1 & 3.5 & 1.4 & 0.3 & setosa\\
-5.7 & 3.8 & 1.7 & 0.3 & setosa\\
-5.1 & 3.8 & 1.5 & 0.3 & setosa\\
-\bottomrule
-\end{tabular}
-\end{table}
+This table includes static information about different plots where the plants will be introduced. The foreign key is the plant\_id, which references the Plants table. Other attributes are the planting method used and the location of the plots.
 
-You can write citations, too. For example, we are using the \textbf{bookdown} package \citep{R-bookdown} in this sample book, which was built on top of R Markdown and \textbf{knitr} \citep{xie2015}.
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{dbExecute}\NormalTok{(restoration_db, }\StringTok{"CREATE TABLE plots (}
+\StringTok{          plot_id varchar(5) NOT NULL PRIMARY KEY,}
+\StringTok{          planting_method char(9),}
+\StringTok{          location varchar(6), }
+\StringTok{          FOREIGN KEY (plant_id) REFERENCES plants(plant_id)}
+\StringTok{          );"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{table-3-observations}{%
+\section{Table 3: Observations}\label{table-3-observations}}
+
+The observations table includes the data collected at each plot on different collecting days. The foreign key is the plot\_id column, which references the Plots table. This data is not static. In addition to date, attributes included are water depth, flow rate, and Secchi depth, which very variable in the restoration system.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{dbExecute}\NormalTok{(restoration_db, }\StringTok{"CREATE TABLE observations (}
+\StringTok{          observation_id varchar(10) NOT NULL PRIMARY KEY,}
+\StringTok{          date text,}
+\StringTok{          plot_id varchar(5), }
+\StringTok{          water_depth float, }
+\StringTok{          flow_rate float,}
+\StringTok{          secchi_depth float,}
+\StringTok{          FOREIGN KEY (plot_id) REFERENCES plots(plot_id)}
+\StringTok{          );"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{table-4-functional-traits}{%
+\section{Table 4: Functional Traits}\label{table-4-functional-traits}}
+
+This is where measurements of specific plants are recorded. This will be used to determine the success of the different plots. There are two foreign keys: plot\_id and observation\_id. Functional traits measured are leaf wisth, height, rhizomes, root depth, and shoot biomass.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{dbExecute}\NormalTok{(restoration_db, }\StringTok{"CREATE TABLE functional_traits (}
+\StringTok{          measurement_id varchar(5) NOT NULL PRIMARY KEY,}
+\StringTok{          plant_id varchar(5),}
+\StringTok{          observation_id varchar(10), }
+\StringTok{          leaf_width float, }
+\StringTok{          height float, }
+\StringTok{          rhizomes float, }
+\StringTok{          root_depth float,}
+\StringTok{          biomass float, }
+\StringTok{          FOREIGN KEY (plot_id) REFERENCES plots(plot_id),}
+\StringTok{          FOREIGN KEY (observation_id) REFERENCES observations(observation_id)}
+\StringTok{          );"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{table-5-species-richness}{%
+\section{Table 5: Species richness}\label{table-5-species-richness}}
+
+This table includes measurements to evaluate species richness. It has two foreign keys: observation and plot identifications. Attributes measured are presence of invasive species and percent cover of each species.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{dbExecute}\NormalTok{(restoration_db, }\StringTok{"CREATE TABLE species_richness (}
+\StringTok{          richness_id varchar(10) NOT NULL PRIMARY KEY,}
+\StringTok{          plot_id varchar(5),}
+\StringTok{          observation_id varchar(10),}
+\StringTok{          inv_sp_presence_score integer, }
+\StringTok{          percent_cover integer,}
+\StringTok{          FOREIGN KEY (plot_id) REFERENCES plots(plot_id),}
+\StringTok{          FOREIGN KEY (observation_id) REFERENCES observations(observation_id)}
+\StringTok{          );"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
 
   \bibliography{book.bib,packages.bib}
 

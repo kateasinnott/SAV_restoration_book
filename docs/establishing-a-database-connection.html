@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Restoration of Submerged Aquatic Vegetation</title>
+  <title>Chapter 3 Establishing a database connection | Restoration of Submerged Aquatic Vegetation</title>
   <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Restoration of Submerged Aquatic Vegetation" />
+  <meta property="og:title" content="Chapter 3 Establishing a database connection | Restoration of Submerged Aquatic Vegetation" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Restoration of Submerged Aquatic Vegetation" />
+  <meta name="twitter:title" content="Chapter 3 Establishing a database connection | Restoration of Submerged Aquatic Vegetation" />
   
   <meta name="twitter:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="rsqlite-package.html"/>
+<link rel="prev" href="rsqlite-package.html"/>
+<link rel="next" href="building-database-tables.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -164,22 +164,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Restoration of Submerged Aquatic Vegetation</h1>
-<p class="author"><em>Kate Sinnott</em></p>
-<p class="date"><em>2021-03-08</em></p>
-</div>
-<div id="project-introduction" class="section level1">
-<h1><span class="header-section-number">Chapter 1</span> Project Introduction</h1>
-
+<div id="establishing-a-database-connection" class="section level1">
+<h1><span class="header-section-number">Chapter 3</span> Establishing a database connection</h1>
+<p>I have already created a database for my SAV restoration project in SQLite,
+so now I need to connect to that database using <code>dbConnect</code>.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="establishing-a-database-connection.html#cb2-1"></a>restoration_db &lt;-<span class="st"> </span><span class="kw">dbConnect</span>(RSQLite<span class="op">::</span><span class="kw">SQLite</span>(),<span class="st">&quot;/Users/katesinnott/Desktop/WILD_6900/SAV_restoration/SAV_restoration.db&quot;</span>)</span></code></pre></div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="rsqlite-package.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="rsqlite-package.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="building-database-tables.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

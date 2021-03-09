@@ -1,27 +1,3 @@
---- 
-title: "Restoration of Submerged Aquatic Vegetation"
-author: "Kate Sinnott"
-date: "`r Sys.Date()`"
-site: bookdown::bookdown_site
-documentclass: book
-bibliography: [book.bib, packages.bib]
-biblio-style: apalike
-link-citations: yes
-description: "This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook."
----
-
-# Project Introduction
-
-
-```{r include=FALSE}
-# automatically create a bib database for R packages
-knitr::write_bib(c(
-  .packages(), 'bookdown', 'knitr', 'rmarkdown'
-), 'packages.bib')
-```
-
-<!--chapter:end:index.Rmd-->
-
 ---
 title: 'Assignment 6: Database Set-up in RMarkdown'
 author: "Kate Sinnott"
@@ -120,6 +96,3 @@ dbExecute(restoration_db, "CREATE TABLE species_richness (
           FOREIGN KEY (observation_id) REFERENCES observations(observation_id)
           );")
 ```
-
-<!--chapter:end:database_setup.Rmd-->
-
