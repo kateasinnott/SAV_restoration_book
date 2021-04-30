@@ -13,3 +13,5 @@ table-4-functional-traits
 table-5-species-richness
 testing-invasion-resistance-mechanisms-in-aquatic-plant-communities
 improving-establishment-in-aquatic-plant-restoration-through-planting-method
+barplot-belowground-biomass-by-planting-method
+boxplot-aboveground-biomass-in-clumping-vs.-spacing-treatments

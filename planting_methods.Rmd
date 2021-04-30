@@ -11,6 +11,7 @@ Paragraph about SAV restoration
 
 I want to know if the belowground biomass differs between planting methods. Stuckenia pectinata forms root tubers, which are a crucial part of how they survive the winter, disperse, and grow back rapidly following disturbance. Their rhizomes contribute to sediment stabilization, a ecosystem function in the highly turbid Utah Lake ecosystem. aMeasuring belowground biomass is a proxy for tuber and rhizome development. 
 
+### Barplot: Belowground biomass by planting method
 I want to make a bar plot showing below-ground biomass across treatments. First, I need to install tidyverse: 
 
 ```{r ggplot, eval=TRUE, echo=TRUE, message=FALSE, warning=FALSE}
@@ -43,3 +44,10 @@ functional_traits %>%
 ```{r barplot figure, echo=FALSE, eval=TRUE, fig.cap="Belowground biomass by planting method", fig.align='center', out.width='100%'}
 knitr::include_graphics("/Users/katesinnott/Desktop/WILD_6900/SAV_restoration/SAV_restoration_book/barplot.tiff")
 ```
+
+It looks like the belowground biomass is higher in the hand-planted treatments!
+
+
+### Boxplot: Aboveground biomass in clumping vs. spacing treatments
+
+
