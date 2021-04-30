@@ -42,7 +42,7 @@ functional_traits %>%
 
 
 ```{r barplot figure, echo=FALSE, eval=TRUE, fig.cap="Belowground biomass by planting method", fig.align='center', out.width='100%'}
-knitr::include_graphics("/Users/katesinnott/Desktop/WILD_6900/SAV_restoration/SAV_restoration_book/barplot.tiff")
+knitr::include_graphics("/Users/katesinnott/Desktop/WILD_6900/SAV_restoration/SAV_restoration_book/docs/barplot.tiff")
 ```
 
 It looks like the belowground biomass is higher in the hand-planted treatments!

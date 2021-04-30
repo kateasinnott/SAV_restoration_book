@@ -1,0 +1,4 @@
+"0","restoration_db <- dbConnect(RSQLite::SQLite(),""/Users/katesinnott/Desktop/WILD_6900/SAV_restoration/SAV_restoration.db"")"
+"2","Error in dbConnect(RSQLite::SQLite(), ""/Users/katesinnott/Desktop/WILD_6900/SAV_restoration/SAV_restoration.db"") : 
+  could not find function ""dbConnect""
+"

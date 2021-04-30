@@ -1,0 +1,8 @@
+"0","dbExecute(restoration_db, ""CREATE TABLE plants (
+          plant_id varchar(7) NOT NULL PRIMARY KEY,
+          species char(4),
+          origin char(4)
+          );"")
+"
+"2","Error: table plants already exists
+"
