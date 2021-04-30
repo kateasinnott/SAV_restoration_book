@@ -7,18 +7,16 @@ output: html_document
 
 # Improving Establishment in Aquatic Plant Restoration Through Planting Method
 
-Paragraph about SAV restoration
-
-I want to know if the belowground biomass differs between planting methods. Stuckenia pectinata forms root tubers, which are a crucial part of how they survive the winter, disperse, and grow back rapidly following disturbance. Their rhizomes contribute to sediment stabilization, a ecosystem function in the highly turbid Utah Lake ecosystem. aMeasuring belowground biomass is a proxy for tuber and rhizome development. 
+I want to know if the belowground biomass differs between planting methods. *Stuckenia pectinata* forms root tubers, which are a crucial part of how they survive the winter, disperse, and grow back rapidly following disturbance. Their rhizomes contribute to sediment stabilization, an important ecosystem function in the highly turbid Utah Lake ecosystem. Measuring belowground biomass here is a proxy for tuber and rhizome development. 
 
 ### Barplot: Belowground biomass by planting method
-I want to make a bar plot showing below-ground biomass across treatments. First, I need to install tidyverse: 
+I want to make a bar plot showing below-ground biomass across treatments. First, I need to install `tidyverse`: 
 
 ```{r ggplot, eval=TRUE, echo=TRUE, message=FALSE, warning=FALSE}
 library(tidyverse) 
 ```
 
-Then I can combine the "Functional traits" and "Plot tables", build the bar plot, and save it as an image in ggplot.
+Then I can combine the "Functional traits" and "Plot tables", build the bar plot, and save it as an image in `ggplot`.
 
 ```{r data viz 1, echo = TRUE, eval = FALSE}
 functional_traits %>% 
@@ -36,18 +34,45 @@ functional_traits %>%
   labs(x = "Planting method", y = "Belowground biomass (g)") +
   theme_light() + 
   theme(legend.position = "none") +
-  ggsave(filename = "barplot.tiff",
-         device = "tiff")
+  ggsave(filename = "barplot.png",
+         device = "png",
+         dpi = 400)
 ```
 
-
-```{r barplot figure, echo=FALSE, eval=TRUE, fig.cap="Belowground biomass by planting method", fig.align='center', out.width='100%'}
-knitr::include_graphics("/Users/katesinnott/Desktop/WILD_6900/SAV_restoration/SAV_restoration_book/docs/barplot.tiff")
-```
+![](https://github.com/kateasinnott/SAV_restoration_book/blob/main/barplot.png?raw=TRUE)
 
 It looks like the belowground biomass is higher in the hand-planted treatments!
 
 
+
 ### Boxplot: Aboveground biomass in clumping vs. spacing treatments
 
+Now I want to look at aboveground biomass in clumping vs. spaced treatments. I'll look at this by building a boxplot. 
 
+```{r data viz 2, echo = TRUE, eval = FALSE}
+functional_traits %>% 
+  left_join(plots, by = "plot_id") %>% 
+  mutate(spacing = case_when(
+    planting_method == "hand_clump" ~ "Clumped",
+    planting_method == "hand_space" ~ "Spaced" ,
+    planting_method == "wrap_clump" ~ "Clumped",
+    planting_method == "wrap_space" ~ "Spaced"
+  )) %>% 
+  ggplot(mapping = aes(x= spacing, 
+                       y = below_biomass_g, 
+                       color = spacing)) +
+  geom_boxplot() +
+  labs(x = " ", y = "Aboveground biomass (g)") +
+  theme_light() + 
+  theme(legend.position = "none") +
+  ggsave(filename = "boxplot.png",
+         device = "png",
+         dpi = 400)
+```
+
+
+![](https://github.com/kateasinnott/SAV_restoration_book/blob/main/boxplot.png?raw=TRUE)
+
+Looks like aboveground biomass is higher in the spaced treatments. 
+
+**Based on these two plots, I would recommend that practitioners use a hand-planted spaced treatment to introduce plants to their sites for highest biomass production.**

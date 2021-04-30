@@ -28,9 +28,7 @@ Now I need to start creating my database tables. To do this I use `dbExecute`, t
 just type in the query like I would in SQLite. This is the database structure I will
 be building: 
 
-```{r diagram, echo=FALSE, eval=TRUE, fig.cap="Database diagram", fig.align='center', out.width='100%'}
-knitr::include_graphics("/Users/katesinnott/Desktop/WILD_6900/SAV_restoration/Screen Shot 2021-03-01 at 7.28.09 PM.png")
-```
+![](https://github.com/kateasinnott/SAV_restoration_book/blob/main/Screen%20Shot%202021-04-30%20at%205.19.32%20PM.png?raw=TRUE)
 
 ### Table 1: Plants 
 I started with this table because it doesn't reference foreign keys from other tables. This table includes information I will need to reference specific plant populations - 

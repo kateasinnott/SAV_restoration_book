@@ -3,7 +3,7 @@
     "path": "~/Desktop/WILD_6900/SAV_restoration/SAV_restoration_book/invasion_resistance.Rmd",
     "project_path": "invasion_resistance.Rmd",
     "type": "r_markdown",
-    "hash": "4131525476",
+    "hash": "955318486",
     "contents": "",
     "dirty": false,
     "created": 1619554007459.0,
@@ -11,15 +11,15 @@
     "relative_order": 5,
     "properties": {
         "tempName": "Untitled1",
-        "cursorPosition": "9,24",
+        "cursorPosition": "9,26",
         "scrollLine": "0"
     },
     "folds": "",
-    "lastKnownWriteTime": 1619820676,
+    "lastKnownWriteTime": 1619823498,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1619820676435,
+    "last_content_update": 1619823498598,
     "read_only": false,
     "read_only_alternatives": []
 }
