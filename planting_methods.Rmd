@@ -22,13 +22,24 @@ Then I can combine the "Functional traits" and "Plot tables", build the bar plot
 ```{r data viz 1, echo = TRUE, eval = FALSE}
 functional_traits %>% 
   left_join(plots, by = "plot_id") %>% 
-  ggplot(mapping = aes(x= planting_method, 
+  mutate(p_m = case_when(
+    planting_method == "hand_clump" ~ "Hand-planted (clumped)",
+    planting_method == "hand_space" ~ "Hand-planted (spaced)" ,
+    planting_method == "wrap_clump" ~ "Burlap wrap (clumped)",
+    planting_method == "wrap_space" ~ "Burlap wrap (spaced)"
+  )) %>% 
+  ggplot(mapping = aes(x= p_m, 
                        y = below_biomass_g, 
-                       fill = planting_method)) +
+                       fill = p_m)) +
   geom_col() +
   labs(x = "Planting method", y = "Belowground biomass (g)") +
   theme_light() + 
   theme(legend.position = "none") +
   ggsave(filename = "barplot.tiff",
          device = "tiff")
+```
+
+
+```{r barplot figure, echo=FALSE, eval=TRUE, fig.cap="Belowground biomass by planting method", fig.align='center', out.width='100%'}
+knitr::include_graphics("/Users/katesinnott/Desktop/WILD_6900/SAV_restoration/SAV_restoration_book/barplot.tiff")
 ```
