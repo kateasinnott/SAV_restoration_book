@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Restoration of Submerged Aquatic Vegetation</title>
+  <title>Restoration of Aquatic Plant Communities</title>
   <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Restoration of Submerged Aquatic Vegetation" />
+  <meta property="og:title" content="Restoration of Aquatic Plant Communities" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Restoration of Submerged Aquatic Vegetation" />
+  <meta name="twitter:title" content="Restoration of Aquatic Plant Communities" />
   
   <meta name="twitter:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
   
@@ -24,7 +24,6 @@
 <meta name="author" content="Kate Sinnott" />
 
 
-<meta name="date" content="2021-03-08" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -32,7 +31,7 @@
   
   
 
-<link rel="next" href="database-structure.html"/>
+<link rel="next" href="database-creation.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -131,21 +130,26 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">Restoration of Submerged Aquatic Vegetation</a></li>
+<li><a href="./">Restoration of Aquatic Plant Communities</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Project Introduction</a></li>
-<li class="chapter" data-level="2" data-path="database-structure.html"><a href="database-structure.html"><i class="fa fa-check"></i><b>2</b> Database Structure</a><ul>
-<li class="chapter" data-level="2.1" data-path="database-structure.html"><a href="database-structure.html#rsqlite-package"><i class="fa fa-check"></i><b>2.1</b> RSQLite Package</a></li>
-<li class="chapter" data-level="2.2" data-path="database-structure.html"><a href="database-structure.html#establishing-a-database-connection"><i class="fa fa-check"></i><b>2.2</b> Establishing a database connection</a></li>
-<li class="chapter" data-level="2.3" data-path="database-structure.html"><a href="database-structure.html#building-database-tables"><i class="fa fa-check"></i><b>2.3</b> Building database tables</a><ul>
-<li class="chapter" data-level="2.3.1" data-path="database-structure.html"><a href="database-structure.html#table-1-plants"><i class="fa fa-check"></i><b>2.3.1</b> Table 1: Plants</a></li>
-<li class="chapter" data-level="2.3.2" data-path="database-structure.html"><a href="database-structure.html#table-2-plots"><i class="fa fa-check"></i><b>2.3.2</b> Table 2: Plots</a></li>
-<li class="chapter" data-level="2.3.3" data-path="database-structure.html"><a href="database-structure.html#table-3-observations"><i class="fa fa-check"></i><b>2.3.3</b> Table 3: Observations</a></li>
-<li class="chapter" data-level="2.3.4" data-path="database-structure.html"><a href="database-structure.html#table-4-functional-traits"><i class="fa fa-check"></i><b>2.3.4</b> Table 4: Functional Traits</a></li>
-<li class="chapter" data-level="2.3.5" data-path="database-structure.html"><a href="database-structure.html#table-5-species-richness"><i class="fa fa-check"></i><b>2.3.5</b> Table 5: Species richness</a></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Project Introduction</a><ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#project-goals"><i class="fa fa-check"></i><b>1.1</b> Project Goals</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#project-outline"><i class="fa fa-check"></i><b>1.2</b> Project Outline</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="database-creation.html"><a href="database-creation.html"><i class="fa fa-check"></i><b>2</b> Database Creation</a><ul>
+<li class="chapter" data-level="2.1" data-path="database-creation.html"><a href="database-creation.html#rsqlite-package"><i class="fa fa-check"></i><b>2.1</b> RSQLite Package</a></li>
+<li class="chapter" data-level="2.2" data-path="database-creation.html"><a href="database-creation.html#establishing-a-database-connection"><i class="fa fa-check"></i><b>2.2</b> Establishing a database connection</a></li>
+<li class="chapter" data-level="2.3" data-path="database-creation.html"><a href="database-creation.html#building-database-tables"><i class="fa fa-check"></i><b>2.3</b> Building database tables</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="database-creation.html"><a href="database-creation.html#table-1-plants"><i class="fa fa-check"></i><b>2.3.1</b> Table 1: Plants</a></li>
+<li class="chapter" data-level="2.3.2" data-path="database-creation.html"><a href="database-creation.html#table-2-plots"><i class="fa fa-check"></i><b>2.3.2</b> Table 2: Plots</a></li>
+<li class="chapter" data-level="2.3.3" data-path="database-creation.html"><a href="database-creation.html#table-3-observations"><i class="fa fa-check"></i><b>2.3.3</b> Table 3: Observations</a></li>
+<li class="chapter" data-level="2.3.4" data-path="database-creation.html"><a href="database-creation.html#table-4-functional-traits"><i class="fa fa-check"></i><b>2.3.4</b> Table 4: Functional Traits</a></li>
+<li class="chapter" data-level="2.3.5" data-path="database-creation.html"><a href="database-creation.html#table-5-species-richness"><i class="fa fa-check"></i><b>2.3.5</b> Table 5: Species richness</a></li>
 </ul></li>
 </ul></li>
+<li class="chapter" data-level="3" data-path="testing-invasion-resistance-mechanisms-in-aquatic-plant-communities.html"><a href="testing-invasion-resistance-mechanisms-in-aquatic-plant-communities.html"><i class="fa fa-check"></i><b>3</b> Testing Invasion Resistance Mechanisms in Aquatic Plant Communities</a></li>
+<li class="chapter" data-level="4" data-path="improving-establishment-in-aquatic-plant-restoration-through-planting-method.html"><a href="improving-establishment-in-aquatic-plant-restoration-through-planting-method.html"><i class="fa fa-check"></i><b>4</b> Improving Establishment in Aquatic Plant Restoration Through Planting Method</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -158,7 +162,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Restoration of Submerged Aquatic Vegetation</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Restoration of Aquatic Plant Communities</a>
           </h1>
         </div>
 
@@ -167,16 +171,27 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
             <section class="normal" id="section-">
 <div id="header">
-<h1 class="title">Restoration of Submerged Aquatic Vegetation</h1>
+<h1 class="title">Restoration of Aquatic Plant Communities</h1>
 <p class="author"><em>Kate Sinnott</em></p>
-<p class="date"><em>2021-03-08</em></p>
+<p class="date"><em>5/4/2021</em></p>
 </div>
 <div id="project-introduction" class="section level1">
 <h1><span class="header-section-number">Chapter 1</span> Project Introduction</h1>
-<p>Restoration techniques and community dynamics are not well understood for submerged aquatic vegetation (SAV). My research addresses the following questions:
-<strong>What planting methods maximize SAV establishment in unvegetated aquatic habitat?</strong>
-<strong>Does increasing SAV species richness maximize invasion resistance to non-native invaders?</strong></p>
+<p>Restoration techniques and community dynamics are not well understood for submerged aquatic vegetation (SAV). <strong><em>Data is fabricated for coding practice purposes</em></strong></p>
+<div id="project-goals" class="section level2">
+<h2><span class="header-section-number">1.1</span> Project Goals</h2>
+<p>The goal of this project is to answer the following questions:<br />
+1. <strong>What planting methods maximize SAV establishment in unvegetated aquatic habitat?</strong><br />
+2. <strong>Does increasing SAV species richness maximize invasion resistance to non-native invaders?</strong></p>
+</div>
+<div id="project-outline" class="section level2">
+<h2><span class="header-section-number">1.2</span> Project Outline</h2>
+<p>This book is composed of the following chapters:<br />
+* Chapter 2 – Database Creation<br />
+* Chapter 3 – Testing Invasion Resistance Mechanisms in Aquatic Plant Communities<br />
+* Chapter 4 – Improving Establishment in Aquatic Plant Restoration</p>
 
+</div>
 </div>
             </section>
 
@@ -184,7 +199,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
         </div>
       </div>
 
-<a href="database-structure.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="database-creation.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

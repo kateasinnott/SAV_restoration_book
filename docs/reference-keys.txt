@@ -1,0 +1,15 @@
+fig:diagram
+project-introduction
+project-goals
+project-outline
+database-creation
+rsqlite-package
+establishing-a-database-connection
+building-database-tables
+table-1-plants
+table-2-plots
+table-3-observations
+table-4-functional-traits
+table-5-species-richness
+testing-invasion-resistance-mechanisms-in-aquatic-plant-communities
+improving-establishment-in-aquatic-plant-restoration-through-planting-method
